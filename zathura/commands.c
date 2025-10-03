@@ -402,7 +402,8 @@ bool cmd_search(girara_session_t* session, const char* input, girara_argument_t*
   zathura_t* zathura           = session->global.data;
   zathura_document_t* document = zathura_get_document(zathura);
 
-  if (document == NULL || strlen(input) == 0) {
+  size_t input_len = strlen(input);
+  if (zathura->document == NULL || input_len == 0) {
     return false;
   }
 
@@ -410,6 +411,28 @@ bool cmd_search(girara_session_t* session, const char* input, girara_argument_t*
 
   /* set search direction */
   zathura->global.search_direction = argument->n;
+
+  size_t search_string_len = 0;
+  if(zathura->global.search_string != NULL){
+    search_string_len = strlen(zathura->global.search_string);
+  }
+  /* allocate memory to search string */
+  if(search_string_len == 0){
+    zathura->global.search_string = g_try_malloc(input_len + 1);
+  }
+  /* reallocate memory to fit new search string */
+  else if(input_len < search_string_len){
+    zathura->global.search_string = g_try_realloc(zathura->global.search_string,  input_len + 1);
+  }
+  else if(input_len > search_string_len){
+    zathura->global.search_string = g_try_realloc(zathura->global.search_string, search_string_len + input_len + 1);
+  }
+  /* check whether the memory allocation was successful */
+  if(zathura->global.search_string == NULL){
+    return false;
+  }
+  /* set search string */
+  strcpy(zathura->global.search_string, input);
 
   unsigned int number_of_pages     = zathura_document_get_number_of_pages(document);
   unsigned int current_page_number = zathura_document_get_current_page_number(document);
