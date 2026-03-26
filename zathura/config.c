@@ -766,6 +766,7 @@ void config_load_default(zathura_t* zathura) {
   girara_inputbar_command_add(gsession, "unmap", NULL, girara_cmd_unmap,       NULL,          _("Unmap a key sequence"));
   girara_inputbar_command_add(gsession, "dump",  NULL, girara_cmd_dump_config, NULL,          _("Dump settings to a file"));
 
+  girara_inputbar_command_add(gsession, "annot",      NULL,   cmd_annot, NULL,         _("Test annot feature"));
   girara_inputbar_command_add(gsession, "bmark",      NULL,   cmd_bookmark_create, NULL,         _("Add a bookmark"));
   girara_inputbar_command_add(gsession, "bdelete",    NULL,   cmd_bookmark_delete, cc_bookmarks, _("Delete a bookmark"));
   girara_inputbar_command_add(gsession, "blist",      NULL,   cmd_bookmark_list,   NULL,         _("List all bookmarks"));

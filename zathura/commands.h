@@ -6,6 +6,8 @@
 #include <stdbool.h>
 #include <girara/types.h>
 
+bool cmd_annot(girara_session_t* session, girara_list_t* argument_list);
+
 /**
  * Create a bookmark
  *

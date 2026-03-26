@@ -10,6 +10,8 @@
 
 #include "types.h"
 
+void zathura_document_annot(zathura_document_t* document, zathura_error_t* error);
+
 /**
  * Open the document
  *

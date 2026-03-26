@@ -28,6 +28,15 @@
 #include <girara/log.h>
 #include <girara-gtk/utils.h>
 
+bool cmd_annot(girara_session_t* session, girara_list_t* argument_list) {
+  g_return_val_if_fail(session != NULL && argument_list != NULL, false);
+  g_return_val_if_fail(session->global.data != NULL, false);
+  zathura_t* zathura = session->global.data;
+  zathura_document_t* document = zathura_get_document(zathura);
+  zathura_document_annot(document, NULL);
+  return true;
+}
+
 bool cmd_bookmark_create(girara_session_t* session, girara_list_t* argument_list) {
   g_return_val_if_fail(session != NULL, false);
   g_return_val_if_fail(session->global.data != NULL, false);
