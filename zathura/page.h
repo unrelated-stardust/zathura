@@ -140,6 +140,15 @@ ZATHURA_PLUGIN_API void zathura_page_set_data(zathura_page_t* page, void* data);
  */
 ZATHURA_PLUGIN_API girara_list_t* zathura_page_search_text(zathura_page_t* page, const char* text,
                                                            zathura_error_t* error);
+/**
+ * Get page annotations
+ *
+ * @param page The page object
+ * @param error Set to an error value (see \ref zathura_error_t) if an
+ *   error occurred
+ * @return List of annotations
+ */
+ZATHURA_PLUGIN_API girara_list_t* zathura_page_annots_get(zathura_page_t* page, zathura_error_t* error);
 
 /**
  * Get page links

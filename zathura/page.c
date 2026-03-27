@@ -222,6 +222,26 @@ girara_list_t* zathura_page_search_text(zathura_page_t* page, const char* text, 
   return functions->page_search_text(page, page->data, text, error);
 }
 
+girara_list_t* zathura_page_annots_get(zathura_page_t* page, zathura_error_t* error) {
+  if (page == NULL || page->document == NULL) {
+    if (error != NULL) {
+      *error = ZATHURA_ERROR_INVALID_ARGUMENTS;
+    }
+    return NULL;
+  }
+
+  const zathura_plugin_t* plugin              = zathura_document_get_plugin(page->document);
+  const zathura_plugin_functions_t* functions = zathura_plugin_get_functions(plugin);
+  if (functions->page_annots_get == NULL) {
+    if (error != NULL) {
+      *error = ZATHURA_ERROR_NOT_IMPLEMENTED;
+    }
+    return NULL;
+  }
+
+  return functions->page_annots_get(page, page->data, error);
+}
+
 girara_list_t* zathura_page_links_get(zathura_page_t* page, zathura_error_t* error) {
   if (page == NULL || page->document == NULL) {
     if (error != NULL) {

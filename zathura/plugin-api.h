@@ -75,6 +75,11 @@ typedef girara_list_t* (*zathura_plugin_page_search_text_t)(zathura_page_t* page
                                                             zathura_error_t* error);
 
 /**
+ * Get annotations on a page
+ */
+typedef girara_list_t* (*zathura_plugin_page_annots_get_t)(zathura_page_t* page, void* data, zathura_error_t* error);
+
+/**
  * Get links on a page
  */
 typedef girara_list_t* (*zathura_plugin_page_links_get_t)(zathura_page_t* page, void* data, zathura_error_t* error);
@@ -175,6 +180,11 @@ struct zathura_plugin_functions_s {
    * Search text
    */
   zathura_plugin_page_search_text_t page_search_text;
+
+  /**
+   * Get annots on a page
+   */
+  zathura_plugin_page_annots_get_t page_annots_get;
 
   /**
    * Get links on a page

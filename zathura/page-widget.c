@@ -27,6 +27,11 @@ typedef struct zathura_page_widget_private_s {
   bool cached;                          /**< Cached state */
 
   struct {
+    girara_list_t* list; /**< List of annotations on the page */
+    gboolean retrieved;  /**< True if we already tried to retrieve the list of annotations */
+  } annotations;
+
+  struct {
     girara_list_t* list; /**< List of links on the page */
     gboolean retrieved;  /**< True if we already tried to retrieve the list of links */
     gboolean draw;       /**< True if links should be drawn */
@@ -198,6 +203,9 @@ static void zathura_page_widget_init(ZathuraPageWidget* widget) {
   priv->thumbnail                = NULL;
   priv->render_request           = NULL;
   priv->cached                   = false;
+
+  priv->annotations.list      = NULL;
+  priv->annotations.retrieved = false;
 
   priv->links.list      = NULL;
   priv->links.retrieved = false;
