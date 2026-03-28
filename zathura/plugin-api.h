@@ -14,11 +14,6 @@
 typedef struct zathura_plugin_functions_s zathura_plugin_functions_t;
 
 /**
- *  TODO
- */
-typedef zathura_error_t (*zathura_plugin_document_annot_t)(zathura_document_t* document);
-
-/**
  * Opens a document
  */
 typedef zathura_error_t (*zathura_plugin_document_open_t)(zathura_document_t* document);
@@ -80,6 +75,11 @@ typedef girara_list_t* (*zathura_plugin_page_search_text_t)(zathura_page_t* page
 typedef girara_list_t* (*zathura_plugin_page_annots_get_t)(zathura_page_t* page, void* data, zathura_error_t* error);
 
 /**
+ * Get annotations on a page
+ */
+typedef girara_list_t* (*zathura_plugin_page_annots_get_t)(zathura_page_t* page, void* data, zathura_error_t* error);
+
+/**
  * Get links on a page
  */
 typedef girara_list_t* (*zathura_plugin_page_links_get_t)(zathura_page_t* page, void* data, zathura_error_t* error);
@@ -130,7 +130,6 @@ typedef zathura_error_t (*zathura_plugin_page_get_label_t)(zathura_page_t* page,
 typedef girara_list_t* (*zathura_plugin_page_get_signatures)(zathura_page_t* page, void* data, zathura_error_t* error);
 
 struct zathura_plugin_functions_s {
-  zathura_plugin_document_annot_t document_annot;
   /**
    * Opens a document
    */

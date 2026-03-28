@@ -89,15 +89,6 @@ static bool hash_file_sha256(uint8_t* dst, const char* path) {
   return true;
 }
 
-void zathura_document_annot(zathura_document_t* document, zathura_error_t* error) {
-  const zathura_plugin_functions_t* functions = zathura_plugin_get_functions(document->plugin);
-  if (functions->document_annot == NULL) {
-    zathura_check_set_error(error, ZATHURA_ERROR_NOT_IMPLEMENTED);
-    return;
-  }
-  functions->document_annot(document);
-}
-
 zathura_document_t* zathura_document_open(zathura_t* zathura, const char* path, const char* uri, const char* password,
                                           zathura_error_t* error) {
   if (zathura == NULL || path == NULL) {

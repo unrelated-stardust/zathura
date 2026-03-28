@@ -33,7 +33,6 @@ bool cmd_annot(girara_session_t* session, girara_list_t* argument_list) {
   g_return_val_if_fail(session->global.data != NULL, false);
   zathura_t* zathura = session->global.data;
   zathura_document_t* document = zathura_get_document(zathura);
-  zathura_document_annot(document, NULL);
   return true;
 }
 
