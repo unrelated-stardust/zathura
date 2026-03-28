@@ -135,6 +135,7 @@ sources = files(
   'zathura/file-monitor-signal.c',
   'zathura/jumplist.c',
   'zathura/links.c',
+  'zathura/annots.c',
   'zathura/marks.c',
   'zathura/page.c',
   'zathura/page-widget.c',
@@ -153,6 +154,7 @@ sources += zathura_resources
 headers = files(
   'zathura/document.h',
   'zathura/links.h',
+  'zathura/annots.h',
   'zathura/macros.h',
   'zathura/page.h',
   'zathura/plugin-api.h',

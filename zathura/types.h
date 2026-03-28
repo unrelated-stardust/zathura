@@ -197,6 +197,15 @@ typedef struct zathura_link_target_s {
  */
 typedef struct zathura_link_s zathura_link_t;
 
+typedef enum zathura_annot_type_e {
+  ZATHURA_ANNOT_TEXT
+} zathura_annot_type_t;
+
+/**
+ * Annot
+ */
+typedef struct zathura_annot_s zathura_annot_t;
+
 /**
  * Index element
  */
