@@ -5,6 +5,7 @@
 #include <glib.h>
 
 #include "types.h"
+#include "annots.h"
 #include "links.h"
 #include "internal.h"
 

@@ -1,5 +1,7 @@
 /* SPDX-License-Identifier: Zlib */
 
+#include <glib.h>
+
 #include "annots.h"
 
 struct zathura_annot_s {

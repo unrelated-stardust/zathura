@@ -5,8 +5,6 @@
 
 #include "types.h"
 
-#include <gtk/gtk.h>
-
 /**
  * Creates a new zathura annotation
  *
